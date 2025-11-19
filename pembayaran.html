@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pembayaran - Pencatatan Hutang Kost</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Pembayaran Hutang</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Dashboard</a></li>
+                    <li><a href="hutang.html">Daftar Hutang</a></li>
+                    <li><a href="pembayaran.html" class="active">Pembayaran</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section class="payment-section">
+                <div class="section-header">
+                    <h2>Riwayat Pembayaran</h2>
+                    <button class="btn-primary" id="add-payment-btn">Tambah Pembayaran</button>
+                </div>
+
+                <div class="payment-list">
+                    <!-- Daftar pembayaran akan ditampilkan di sini -->
+                    <div class="empty-state">
+                        <p>Belum ada pembayaran yang tercatat.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2023 Sistem Pencatatan Hutang Kost</p>
+        </footer>
+    </div>
+
+    <!-- Modal Tambah Pembayaran -->
+    <div id="payment-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Tambah Pembayaran</h2>
+            <form id="payment-form">
+                <div class="form-group">
+                    <label for="payment-debtor">Peminjam:</label>
+                    <select id="payment-debtor" required>
+                        <option value="">Pilih Peminjam</option>
+                        <option value="daffa">Daffa</option>
+                        <option value="rizky">Rizky</option>
+                        <option value="omar">Omar</option>
+                        <option value="zaky">Zaky</option>
+                        <option value="rozi">Rozi</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="payment-amount">Jumlah Pembayaran:</label>
+                    <input type="number" id="payment-amount" placeholder="Masukkan jumlah" required>
+                </div>
+                <div class="form-group">
+                    <label for="payment-date">Tanggal Pembayaran:</label>
+                    <input type="date" id="payment-date" required>
+                </div>
+                <div class="form-group">
+                    <label for="payment-method">Metode Pembayaran:</label>
+                    <select id="payment-method">
+                        <option value="cash">Tunai</option>
+                        <option value="transfer">Transfer Bank</option>
+                        <option value="e-wallet">E-Wallet</option>
+                    </select>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary" id="cancel-payment">Batal</button>
+                    <button type="submit" class="btn-primary">Simpan</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

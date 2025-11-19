@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Hutang - Pencatatan Hutang Kost</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Daftar Hutang</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Dashboard</a></li>
+                    <li><a href="hutang.html" class="active">Daftar Hutang</a></li>
+                    <li><a href="pembayaran.html">Pembayaran</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section class="debt-list-section">
+                <div class="section-header">
+                    <h2>Semua Hutang</h2>
+                    <button class="btn-primary" id="add-debt-btn">Tambah Hutang</button>
+                </div>
+
+                <div class="filter-section">
+                    <input type="text" id="search-debt" placeholder="Cari hutang...">
+                    <select id="filter-status">
+                        <option value="all">Semua Status</option>
+                        <option value="unpaid">Belum Lunas</option>
+                        <option value="paid">Lunas</option>
+                    </select>
+                </div>
+
+                <div class="debt-list">
+                    <!-- Daftar hutang akan ditampilkan di sini -->
+                    <div class="empty-state">
+                        <p>Belum ada hutang yang tercatat.</p>
+                        <button class="btn-primary" id="add-first-debt">Tambah Hutang Pertama</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2023 Sistem Pencatatan Hutang Kost</p>
+        </footer>
+    </div>
+
+    <!-- Modal Tambah Hutang -->
+    <div id="debt-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Tambah Hutang Baru</h2>
+            <form id="debt-form">
+                <div class="form-group">
+                    <label for="debtor">Peminjam:</label>
+                    <select id="debtor" required>
+                        <option value="">Pilih Peminjam</option>
+                        <option value="daffa">Daffa</option>
+                        <option value="rizky">Rizky</option>
+                        <option value="omar">Omar</option>
+                        <option value="zaky">Zaky</option>
+                        <option value="rozi">Rozi</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="amount">Jumlah Hutang:</label>
+                    <input type="number" id="amount" placeholder="Masukkan jumlah" required>
+                </div>
+                <div class="form-group">
+                    <label for="description">Keterangan:</label>
+                    <textarea id="description" placeholder="Deskripsi hutang" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="due-date">Tanggal Jatuh Tempo:</label>
+                    <input type="date" id="due-date">
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary" id="cancel-debt">Batal</button>
+                    <button type="submit" class="btn-primary">Simpan</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

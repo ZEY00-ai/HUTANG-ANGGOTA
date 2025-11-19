@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Hutang Omar - Pencatatan Hutang Kost</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Detail Hutang Omar</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Dashboard</a></li>
+                    <li><a href="hutang.html">Daftar Hutang</a></li>
+                    <li><a href="pembayaran.html">Pembayaran</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section class="member-detail-section">
+                <div class="member-header">
+                    <div class="member-avatar large">O</div>
+                    <div class="member-info">
+                        <h2>Omar</h2>
+                        <p class="member-status">Total Hutang: <span class="total-debt">Rp 0</span></p>
+                        <div class="member-stats">
+                            <div class="stat-item">
+                                <span class="stat-label">Hutang Aktif</span>
+                                <span class="stat-value">0</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Sudah Dibayar</span>
+                                <span class="stat-value">Rp 0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="btn-primary" id="add-debt-omar">Tambah Hutang</button>
+                    <button class="btn-secondary" id="add-payment-omar">Tambah Pembayaran</button>
+                </div>
+
+                <div class="debt-history">
+                    <h3>Riwayat Hutang</h3>
+                    <div class="history-list" id="omar-debts-list">
+                        <!-- Riwayat hutang Omar akan ditampilkan di sini -->
+                        <div class="empty-state">
+                            <p>Belum ada hutang yang tercatat untuk Omar.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="payment-history">
+                    <h3>Riwayat Pembayaran</h3>
+                    <div class="history-list" id="omar-payments-list">
+                        <!-- Riwayat pembayaran Omar akan ditampilkan di sini -->
+                        <div class="empty-state">
+                            <p>Belum ada pembayaran yang tercatat untuk Omar.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2023 Sistem Pencatatan Hutang Kost</p>
+        </footer>
+    </div>
+
+    <!-- Modal Tambah Hutang untuk Omar -->
+    <div id="debt-modal-omar" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Tambah Hutang untuk Omar</h2>
+            <form id="debt-form-omar">
+                <div class="form-group">
+                    <label for="amount-omar">Jumlah Hutang:</label>
+                    <input type="number" id="amount-omar" placeholder="Masukkan jumlah" required>
+                </div>
+                <div class="form-group">
+                    <label for="description-omar">Keterangan:</label>
+                    <textarea id="description-omar" placeholder="Deskripsi hutang" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="due-date-omar">Tanggal Jatuh Tempo:</label>
+                    <input type="date" id="due-date-omar">
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary" id="cancel-debt-omar">Batal</button>
+                    <button type="submit" class="btn-primary">Simpan Hutang</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Tambah Pembayaran untuk Omar -->
+    <div id="payment-modal-omar" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Tambah Pembayaran dari Omar</h2>
+            <form id="payment-form-omar">
+                <div class="form-group">
+                    <label for="payment-amount-omar">Jumlah Pembayaran:</label>
+                    <input type="number" id="payment-amount-omar" placeholder="Masukkan jumlah" required>
+                </div>
+                <div class="form-group">
+                    <label for="payment-date-omar">Tanggal Pembayaran:</label>
+                    <input type="date" id="payment-date-omar" required>
+                </div>
+                <div class="form-group">
+                    <label for="payment-method-omar">Metode Pembayaran:</label>
+                    <select id="payment-method-omar">
+                        <option value="cash">Tunai</option>
+                        <option value="transfer">Transfer Bank</option>
+                        <option value="e-wallet">E-Wallet</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="payment-note-omar">Catatan:</label>
+                    <textarea id="payment-note-omar" placeholder="Catatan pembayaran" rows="2"></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary" id="cancel-payment-omar">Batal</button>
+                    <button type="submit" class="btn-primary">Simpan Pembayaran</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script src="js/member-detail.js"></script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Pencatatan Hutang Kost</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Dashboard Hutang Kost</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="active">Dashboard</a></li>
+                    <li><a href="hutang.html">Daftar Hutang</a></li>
+                    <li><a href="pembayaran.html">Pembayaran</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section class="welcome-section">
+                <h2>Selamat Datang di Sistem Pencatatan Hutang</h2>
+                <p>Kelola hutang piutang antar penghuni kost dengan mudah</p>
+            </section>
+
+            <section class="members-section">
+                <h2>Anggota Kost</h2>
+                <div class="members-grid">
+                    <div class="member-card" data-member="daffa">
+                        <div class="member-avatar">D</div>
+                        <h3>Daffa</h3>
+                        <p class="status">Status Hutang: <span class="amount">Rp 0</span></p>
+                        <button class="btn-detail">Lihat Detail</button>
+                    </div>
+                    <div class="member-card" data-member="rizky">
+                        <div class="member-avatar">R</div>
+                        <h3>Rizky</h3>
+                        <p class="status">Status Hutang: <span class="amount">Rp 0</span></p>
+                        <button class="btn-detail">Lihat Detail</button>
+                    </div>
+                    <div class="member-card" data-member="omar">
+                        <div class="member-avatar">O</div>
+                        <h3>Omar</h3>
+                        <p class="status">Status Hutang: <span class="amount">Rp 0</span></p>
+                        <button class="btn-detail">Lihat Detail</button>
+                    </div>
+                    <div class="member-card" data-member="zaky">
+                        <div class="member-avatar">Z</div>
+                        <h3>Zaky</h3>
+                        <p class="status">Status Hutang: <span class="amount">Rp 0</span></p>
+                        <button class="btn-detail">Lihat Detail</button>
+                    </div>
+                    <div class="member-card" data-member="rozi">
+                        <div class="member-avatar">R</div>
+                        <h3>Rozi</h3>
+                        <p class="status">Status Hutang: <span class="amount">Rp 0</span></p>
+                        <button class="btn-detail">Lihat Detail</button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="summary-section">
+                <div class="summary-card">
+                    <h3>Total Hutang Aktif</h3>
+                    <p class="total">Rp 0</p>
+                </div>
+                <div class="summary-card">
+                    <h3>Jumlah Transaksi</h3>
+                    <p class="count">0</p>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2023 Sistem Pencatatan Hutang Kost</p>
+        </footer>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

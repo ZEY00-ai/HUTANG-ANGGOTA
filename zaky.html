@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Hutang Zaky - Pencatatan Hutang Kost</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Detail Hutang Zaky</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Dashboard</a></li>
+                    <li><a href="hutang.html">Daftar Hutang</a></li>
+                    <li><a href="pembayaran.html">Pembayaran</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section class="member-detail-section">
+                <div class="member-header">
+                    <div class="member-avatar large">Z</div>
+                    <div class="member-info">
+                        <h2>Zaky</h2>
+                        <p class="member-status">Total Hutang: <span class="total-debt">Rp 0</span></p>
+                        <div class="member-stats">
+                            <div class="stat-item">
+                                <span class="stat-label">Hutang Aktif</span>
+                                <span class="stat-value">0</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Sudah Dibayar</span>
+                                <span class="stat-value">Rp 0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="btn-primary" id="add-debt-zaky">Tambah Hutang</button>
+                    <button class="btn-secondary" id="add-payment-zaky">Tambah Pembayaran</button>
+                </div>
+
+                <div class="debt-history">
+                    <h3>Riwayat Hutang</h3>
+                    <div class="history-list" id="zaky-debts-list">
+                        <!-- Riwayat hutang Zaky akan ditampilkan di sini -->
+                        <div class="empty-state">
+                            <p>Belum ada hutang yang tercatat untuk Zaky.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="payment-history">
+                    <h3>Riwayat Pembayaran</h3>
+                    <div class="history-list" id="zaky-payments-list">
+                        <!-- Riwayat pembayaran Zaky akan ditampilkan di sini -->
+                        <div class="empty-state">
+                            <p>Belum ada pembayaran yang tercatat untuk Zaky.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2023 Sistem Pencatatan Hutang Kost</p>
+        </footer>
+    </div>
+
+    <!-- Modal Tambah Hutang untuk Zaky -->
+    <div id="debt-modal-zaky" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Tambah Hutang untuk Zaky</h2>
+            <form id="debt-form-zaky">
+                <div class="form-group">
+                    <label for="amount-zaky">Jumlah Hutang:</label>
+                    <input type="number" id="amount-zaky" placeholder="Masukkan jumlah" required>
+                </div>
+                <div class="form-group">
+                    <label for="description-zaky">Keterangan:</label>
+                    <textarea id="description-zaky" placeholder="Deskripsi hutang" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="due-date-zaky">Tanggal Jatuh Tempo:</label>
+                    <input type="date" id="due-date-zaky">
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary" id="cancel-debt-zaky">Batal</button>
+                    <button type="submit" class="btn-primary">Simpan Hutang</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Tambah Pembayaran untuk Zaky -->
+    <div id="payment-modal-zaky" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Tambah Pembayaran dari Zaky</h2>
+            <form id="payment-form-zaky">
+                <div class="form-group">
+                    <label for="payment-amount-zaky">Jumlah Pembayaran:</label>
+                    <input type="number" id="payment-amount-zaky" placeholder="Masukkan jumlah" required>
+                </div>
+                <div class="form-group">
+                    <label for="payment-date-zaky">Tanggal Pembayaran:</label>
+                    <input type="date" id="payment-date-zaky" required>
+                </div>
+                <div class="form-group">
+                    <label for="payment-method-zaky">Metode Pembayaran:</label>
+                    <select id="payment-method-zaky">
+                        <option value="cash">Tunai</option>
+                        <option value="transfer">Transfer Bank</option>
+                        <option value="e-wallet">E-Wallet</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="payment-note-zaky">Catatan:</label>
+                    <textarea id="payment-note-zaky" placeholder="Catatan pembayaran" rows="2"></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary" id="cancel-payment-zaky">Batal</button>
+                    <button type="submit" class="btn-primary">Simpan Pembayaran</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script src="js/member-detail.js"></script>
+</body>
+</html>

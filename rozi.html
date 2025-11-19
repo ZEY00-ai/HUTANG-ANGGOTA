@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Hutang Rozi - Pencatatan Hutang Kost</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Detail Hutang Rozi</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Dashboard</a></li>
+                    <li><a href="hutang.html">Daftar Hutang</a></li>
+                    <li><a href="pembayaran.html">Pembayaran</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section class="member-detail-section">
+                <div class="member-header">
+                    <div class="member-avatar large">R</div>
+                    <div class="member-info">
+                        <h2>Rozi</h2>
+                        <p class="member-status">Total Hutang: <span class="total-debt">Rp 0</span></p>
+                        <div class="member-stats">
+                            <div class="stat-item">
+                                <span class="stat-label">Hutang Aktif</span>
+                                <span class="stat-value">0</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Sudah Dibayar</span>
+                                <span class="stat-value">Rp 0</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Transaksi</span>
+                                <span class="stat-value">0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="debt-progress">
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 0%"></div>
+                    </div>
+                    <div class="progress-text">
+                        <span>Progress Pembayaran</span>
+                        <span>0%</span>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="btn-primary" id="add-debt-rozi">
+                        <span class="btn-icon">➕</span>
+                        Tambah Hutang
+                    </button>
+                    <button class="btn-secondary" id="add-payment-rozi">
+                        <span class="btn-icon">💳</span>
+                        Tambah Pembayaran
+                    </button>
+                    <button class="btn-detail" id="quick-summary">
+                        <span class="btn-icon">📊</span>
+                        Ringkasan Cepat
+                    </button>
+                </div>
+
+                <div class="tabs">
+                    <button class="tab-button active" data-tab="debts">Riwayat Hutang</button>
+                    <button class="tab-button" data-tab="payments">Riwayat Pembayaran</button>
+                    <button class="tab-button" data-tab="statistics">Statistik</button>
+                </div>
+
+                <div class="tab-content">
+                    <div id="debts-tab" class="tab-pane active">
+                        <div class="section-header">
+                            <h3>Daftar Hutang Rozi</h3>
+                            <div class="filter-actions">
+                                <select id="debt-filter-rozi">
+                                    <option value="all">Semua Hutang</option>
+                                    <option value="unpaid">Belum Lunas</option>
+                                    <option value="paid">Sudah Lunas</option>
+                                    <option value="overdue">Terlambat</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="history-list" id="rozi-debts-list">
+                            <div class="empty-state">
+                                <div class="empty-icon">📝</div>
+                                <p>Belum ada hutang yang tercatat untuk Rozi.</p>
+                                <p class="empty-subtitle">Mulai dengan menambahkan hutang pertama</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="payments-tab" class="tab-pane">
+                        <div class="section-header">
+                            <h3>Riwayat Pembayaran Rozi</h3>
+                            <div class="filter-actions">
+                                <select id="payment-filter-rozi">
+                                    <option value="all">Semua Pembayaran</option>
+                                    <option value="cash">Tunai</option>
+                                    <option value="transfer">Transfer</option>
+                                    <option value="e-wallet">E-Wallet</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="history-list" id="rozi-payments-list">
+                            <div class="empty-state">
+                                <div class="empty-icon">💵</div>
+                                <p>Belum ada pembayaran yang tercatat untuk Rozi.</p>
+                                <p class="empty-subtitle">Pembayaran akan muncul di sini</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="statistics-tab" class="tab-pane">
+                        <div class="stats-grid">
+                            <div class="stat-card">
+                                <div class="stat-icon">📅</div>
+                                <div class="stat-info">
+                                    <h4>Hutang Tertua</h4>
+                                    <p class="stat-value">-</p>
+                                    <p class="stat-label">Belum ada hutang</p>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon">⚡</div>
+                                <div class="stat-info">
+                                    <h4>Hutang Terbaru</h4>
+                                    <p class="stat-value">-</p>
+                                    <p class="stat-label">Belum ada hutang</p>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon">💰</div>
+                                <div class="stat-info">
+                                    <h4>Rata-rata Hutang</h4>
+                                    <p class="stat-value">Rp 0</p>
+                                    <p class="stat-label">Per transaksi</p>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon">⏰</div>
+                                <div class="stat-info">
+                                    <h4>Waktu Pembayaran</h4>
+                                    <p class="stat-value">-</p>
+                                    <p class="stat-label">Rata-rata</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="chart-section">
+                            <h4>Trend Hutang vs Pembayaran</h4>
+                            <div class="chart-placeholder">
+                                <p>Grafik akan ditampilkan ketika ada data yang cukup</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2023 Sistem Pencatatan Hutang Kost</p>
+        </footer>
+    </div>
+
+    <!-- Modal Tambah Hutang untuk Rozi -->
+    <div id="debt-modal-rozi" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Tambah Hutang untuk Rozi</h2>
+            <form id="debt-form-rozi">
+                <div class="form-group">
+                    <label for="amount-rozi">Jumlah Hutang:</label>
+                    <div class="input-with-symbol">
+                        <span class="input-symbol">Rp</span>
+                        <input type="number" id="amount-rozi" placeholder="Masukkan jumlah" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="description-rozi">Keterangan:</label>
+                    <textarea id="description-rozi" placeholder="Deskripsi hutang (contoh: beli makan, bayar listrik, dll.)" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="due-date-rozi">Tanggal Jatuh Tempo:</label>
+                    <input type="date" id="due-date-rozi">
+                </div>
+                <div class="form-group">
+                    <label for="category-rozi">Kategori:</label>
+                    <select id="category-rozi">
+                        <option value="makanan">Makanan & Minuman</option>
+                        <option value="transport">Transportasi</option>
+                        <option value="utilitas">Listrik/Air</option>
+                        <option value="belanja">Belanja</option>
+                        <option value="lainnya">Lainnya</option>
+                    </select>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary" id="cancel-debt-rozi">Batal</button>
+                    <button type="submit" class="btn-primary">Simpan Hutang</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Tambah Pembayaran untuk Rozi -->
+    <div id="payment-modal-rozi" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Tambah Pembayaran dari Rozi</h2>
+            <form id="payment-form-rozi">
+                <div class="form-group">
+                    <label for="payment-amount-rozi">Jumlah Pembayaran:</label>
+                    <div class="input-with-symbol">
+                        <span class="input-symbol">Rp</span>
+                        <input type="number" id="payment-amount-rozi" placeholder="Masukkan jumlah" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="payment-date-rozi">Tanggal Pembayaran:</label>
+                    <input type="date" id="payment-date-rozi" required>
+                </div>
+                <div class="form-group">
+                    <label for="payment-method-rozi">Metode Pembayaran:</label>
+                    <select id="payment-method-rozi">
+                        <option value="cash">Tunai</option>
+                        <option value="transfer">Transfer Bank</option>
+                        <option value="e-wallet">E-Wallet (Gopay, OVO, dll)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="payment-note-rozi">Catatan Pembayaran:</label>
+                    <textarea id="payment-note-rozi" placeholder="Catatan tambahan (opsional)" rows="2"></textarea>
+                </div>
+                <div class="payment-preview">
+                    <h4>Ringkasan Pembayaran:</h4>
+                    <div class="preview-item">
+                        <span>Nama:</span>
+                        <span>Rozi</span>
+                    </div>
+                    <div class="preview-item">
+                        <span>Jumlah:</span>
+                        <span id="preview-amount">Rp 0</span>
+                    </div>
+                    <div class="preview-item">
+                        <span>Metode:</span>
+                        <span id="preview-method">-</span>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary" id="cancel-payment-rozi">Batal</button>
+                    <button type="submit" class="btn-primary">Simpan Pembayaran</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Ringkasan Cepat -->
+    <div id="summary-modal-rozi" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Ringkasan Hutang Rozi</h2>
+            <div class="summary-content">
+                <div class="summary-item">
+                    <span class="summary-label">Total Hutang Aktif:</span>
+                    <span class="summary-value" id="summary-total-debt">Rp 0</span>
+                </div>
+                <div class="summary-item">
+                    <span class="summary-label">Jumlah Transaksi:</span>
+                    <span class="summary-value" id="summary-transaction-count">0</span>
+                </div>
+                <div class="summary-item">
+                    <span class="summary-label">Hutang Tertinggi:</span>
+                    <span class="summary-value" id="summary-highest-debt">Rp 0</span>
+                </div>
+                <div class="summary-item">
+                    <span class="summary-label">Status:</span>
+                    <span class="summary-value status-good" id="summary-status">Tidak ada hutang</span>
+                </div>
+            </div>
+            <div class="summary-actions">
+                <button class="btn-primary" onclick="document.getElementById('add-debt-rozi').click()">Tambah Hutang</button>
+                <button class="btn-secondary" onclick="document.getElementById('add-payment-rozi').click()">Tambah Pembayaran</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script src="js/member-detail.js"></script>
+    <script>
+        // Inisialisasi khusus untuk halaman Rozi
+        document.addEventListener('DOMContentLoaded', function() {
+            // Setup tabs
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabPanes = document.querySelectorAll('.tab-pane');
+            
+            tabButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const tabId = this.getAttribute('data-tab');
+                    
+                    // Remove active class from all buttons and panes
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    tabPanes.forEach(pane => pane.classList.remove('active'));
+                    
+                    // Add active class to current button and pane
+                    this.classList.add('active');
+                    document.getElementById(`${tabId}-tab`).classList.add('active');
+                });
+            });
+            
+            // Real-time preview for payment form
+            const paymentAmountInput = document.getElementById('payment-amount-rozi');
+            const paymentMethodSelect = document.getElementById('payment-method-rozi');
+            const previewAmount = document.getElementById('preview-amount');
+            const previewMethod = document.getElementById('preview-method');
+            
+            if (paymentAmountInput && previewAmount) {
+                paymentAmountInput.addEventListener('input', function() {
+                    const amount = this.value ? parseInt(this.value).toLocaleString('id-ID') : '0';
+                    previewAmount.textContent = `Rp ${amount}`;
+                });
+            }
+            
+            if (paymentMethodSelect && previewMethod) {
+                paymentMethodSelect.addEventListener('change', function() {
+                    const methodText = this.options[this.selectedIndex].text;
+                    previewMethod.textContent = methodText;
+                });
+            }
+            
+            // Quick summary modal
+            const quickSummaryBtn = document.getElementById('quick-summary');
+            const summaryModal = document.getElementById('summary-modal-rozi');
+            
+            if (quickSummaryBtn && summaryModal) {
+                quickSummaryBtn.addEventListener('click', function() {
+                    updateQuickSummary();
+                    summaryModal.style.display = 'block';
+                });
+            }
+            
+            // Close modal handlers
+            document.querySelectorAll('.modal .close').forEach(closeBtn => {
+                closeBtn.addEventListener('click', function() {
+                    this.closest('.modal').style.display = 'none';
+                });
+            });
+            
+            // Click outside modal to close
+            window.addEventListener('click', function(e) {
+                if (e.target.classList.contains('modal')) {
+                    e.target.style.display = 'none';
+                }
+            });
+        });
+        
+        function updateQuickSummary() {
+            const memberName = 'rozi';
+            const memberDebts = debts.filter(debt => debt.debtor === memberName);
+            const totalDebt = getTotalDebtByMember(memberName);
+            const highestDebt = memberDebts.length > 0 ? 
+                Math.max(...memberDebts.map(debt => parseInt(debt.amount))) : 0;
+            
+            // Update summary content
+            document.getElementById('summary-total-debt').textContent = formatRupiah(totalDebt);
+            document.getElementById('summary-transaction-count').textContent = memberDebts.length;
+            document.getElementById('summary-highest-debt').textContent = formatRupiah(highestDebt);
+            
+            // Update status
+            const statusElement = document.getElementById('summary-status');
+            if (totalDebt === 0) {
+                statusElement.textContent = 'Tidak ada hutang';
+                statusElement.className = 'summary-value status-good';
+            } else if (totalDebt < 100000) {
+                statusElement.textContent = 'Hutang kecil';
+                statusElement.className = 'summary-value status-warning';
+            } else {
+                statusElement.textContent = 'Perlu perhatian';
+                statusElement.className = 'summary-value status-danger';
+            }
+        }
+        
+        function updateProgressBar() {
+            const memberName = 'rozi';
+            const totalDebt = getTotalDebtByMember(memberName);
+            const totalPaid = getTotalPaidByMember(memberName);
+            const totalAmount = totalDebt + totalPaid;
+            
+            const progressFill = document.querySelector('.progress-fill');
+            const progressText = document.querySelector('.progress-text span:last-child');
+            
+            if (totalAmount > 0) {
+                const progressPercentage = Math.round((totalPaid / totalAmount) * 100);
+                progressFill.style.width = `${progressPercentage}%`;
+                progressText.textContent = `${progressPercentage}%`;
+            } else {
+                progressFill.style.width = '0%';
+                progressText.textContent = '0%';
+            }
+        }
+        
+        // Override functions untuk update progress bar
+        const originalUpdateMemberData = updateMemberData;
+        window.updateMemberData = function(memberName) {
+            originalUpdateMemberData(memberName);
+            if (memberName === 'rozi') {
+                updateProgressBar();
+                updateQuickSummary();
+            }
+        };
+    </script>
+</body>
+</html>

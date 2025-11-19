@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Hutang Rizky - Pencatatan Hutang Kost</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Detail Hutang Rizky</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Dashboard</a></li>
+                    <li><a href="hutang.html">Daftar Hutang</a></li>
+                    <li><a href="pembayaran.html">Pembayaran</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section class="member-detail-section">
+                <div class="member-header">
+                    <div class="member-avatar large">R</div>
+                    <div class="member-info">
+                        <h2>Rizky</h2>
+                        <p class="member-status">Total Hutang: <span class="total-debt">Rp 0</span></p>
+                        <div class="member-stats">
+                            <div class="stat-item">
+                                <span class="stat-label">Hutang Aktif</span>
+                                <span class="stat-value">0</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Sudah Dibayar</span>
+                                <span class="stat-value">Rp 0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="btn-primary" id="add-debt-rizky">Tambah Hutang</button>
+                    <button class="btn-secondary" id="add-payment-rizky">Tambah Pembayaran</button>
+                </div>
+
+                <div class="debt-history">
+                    <h3>Riwayat Hutang</h3>
+                    <div class="history-list" id="rizky-debts-list">
+                        <!-- Riwayat hutang Rizky akan ditampilkan di sini -->
+                        <div class="empty-state">
+                            <p>Belum ada hutang yang tercatat untuk Rizky.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="payment-history">
+                    <h3>Riwayat Pembayaran</h3>
+                    <div class="history-list" id="rizky-payments-list">
+                        <!-- Riwayat pembayaran Rizky akan ditampilkan di sini -->
+                        <div class="empty-state">
+                            <p>Belum ada pembayaran yang tercatat untuk Rizky.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2023 Sistem Pencatatan Hutang Kost</p>
+        </footer>
+    </div>
+
+    <!-- Modal Tambah Hutang untuk Rizky -->
+    <div id="debt-modal-rizky" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Tambah Hutang untuk Rizky</h2>
+            <form id="debt-form-rizky">
+                <div class="form-group">
+                    <label for="amount-rizky">Jumlah Hutang:</label>
+                    <input type="number" id="amount-rizky" placeholder="Masukkan jumlah" required>
+                </div>
+                <div class="form-group">
+                    <label for="description-rizky">Keterangan:</label>
+                    <textarea id="description-rizky" placeholder="Deskripsi hutang" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="due-date-rizky">Tanggal Jatuh Tempo:</label>
+                    <input type="date" id="due-date-rizky">
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary" id="cancel-debt-rizky">Batal</button>
+                    <button type="submit" class="btn-primary">Simpan Hutang</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Tambah Pembayaran untuk Rizky -->
+    <div id="payment-modal-rizky" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Tambah Pembayaran dari Rizky</h2>
+            <form id="payment-form-rizky">
+                <div class="form-group">
+                    <label for="payment-amount-rizky">Jumlah Pembayaran:</label>
+                    <input type="number" id="payment-amount-rizky" placeholder="Masukkan jumlah" required>
+                </div>
+                <div class="form-group">
+                    <label for="payment-date-rizky">Tanggal Pembayaran:</label>
+                    <input type="date" id="payment-date-rizky" required>
+                </div>
+                <div class="form-group">
+                    <label for="payment-method-rizky">Metode Pembayaran:</label>
+                    <select id="payment-method-rizky">
+                        <option value="cash">Tunai</option>
+                        <option value="transfer">Transfer Bank</option>
+                        <option value="e-wallet">E-Wallet</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="payment-note-rizky">Catatan:</label>
+                    <textarea id="payment-note-rizky" placeholder="Catatan pembayaran" rows="2"></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary" id="cancel-payment-rizky">Batal</button>
+                    <button type="submit" class="btn-primary">Simpan Pembayaran</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script src="js/member-detail.js"></script>
+</body>
+</html>
